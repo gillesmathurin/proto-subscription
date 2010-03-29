@@ -5,3 +5,4 @@ log/cucumber.log
 tmp/*
 db/*.sqlite3
 config/deploy.rb
+config/database.yml

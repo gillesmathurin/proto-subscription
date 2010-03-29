@@ -1,9 +1,0 @@
-production:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: protosubscription_production
-  pool: 5
-  username: root
-  password: g1i9l7l7ou
-  # socket: /tmp/mysql.sock
