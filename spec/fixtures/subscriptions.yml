@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  team_id: 1
+  plan_id: 1
+  status: MyString
+  start_date: 2010-03-19 12:52:22
+  expiration_date: 2010-03-19 12:52:22
+  trial_expiration_date: 2010-03-19 12:52:22
+
+two:
+  team_id: 1
+  plan_id: 1
+  status: MyString
+  start_date: 2010-03-19 12:52:22
+  expiration_date: 2010-03-19 12:52:22
+  trial_expiration_date: 2010-03-19 12:52:22

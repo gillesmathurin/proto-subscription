@@ -1,0 +1,22 @@
+<h1>Nos offres d'abonnement</h1>
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<th colspan="3">Nos Offres</th>
+	</tr>
+	<tr>
+		<% if !@plans.blank? %>
+		  <% for plan in @plans %>
+		    <td>
+		    	<p><%= plan.nom %></p>
+				<p><%= number_to_currency(plan.price_with_decimal, :unit => "€", :format => "%n %u") %></p>
+				<p><%= button_to "Sign Up", {:controller => "subscriptions", :action => :new, :plan_id => plan.id} %></p>
+		    </td>
+		  <% end %>
+		<% else %>
+		  
+		<% end %>
+		
+	</tr>
+</table>
+
