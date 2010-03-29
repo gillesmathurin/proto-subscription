@@ -1,7 +1,9 @@
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: protosubscription_production
   pool: 5
-  timeout: 5000
   username: root
-  password: 19gillou77
+  password: g1i9l7l7ou
+  # socket: /tmp/mysql.sock
