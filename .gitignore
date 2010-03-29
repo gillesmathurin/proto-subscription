@@ -1,4 +1,6 @@
 .DS_Store
-log/*.log
+log/development.log
+log/test.log
+log/cucumber.log
 tmp/*
 db/*.sqlite3

@@ -34,16 +34,15 @@ namespace :deploy do
   #   run "cp -pf /var/rails/protosubscription/to_copy/database.yml #{current_path}/config/database.yml"
   # end
   
-  # task :set_to_wwwdata_user, :roles => :app do
-  #   run "chown -R www-data:root #{current_path}/log/production.log"
-  # end
+  task :set_to_wwwdata_user, :roles => :app do
+    run "chown -R www-data:root #{current_path}/log/production.log"
+  end
   
   # task :load_seeds_data, :role => :app do
   #   run "cd #{current_path} && rake db:create RAILS_ENV=production"
   # end
   
-  after 'deploy:symlink'
-  #, 'deploy:set_to_wwwdata_user'
+  after 'deploy:symlink', 'deploy:set_to_wwwdata_user'
 end
 
 # If you are using Passenger mod_rails uncomment this:
