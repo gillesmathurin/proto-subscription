@@ -42,7 +42,8 @@ namespace :deploy do
   #   run "cd #{current_path} && rake db:create RAILS_ENV=production"
   # end
   
-  after 'deploy:symlink', 'deploy:set_to_wwwdata_user'
+  after 'deploy:symlink'
+  #, 'deploy:set_to_wwwdata_user'
 end
 
 # If you are using Passenger mod_rails uncomment this:
