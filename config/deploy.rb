@@ -38,6 +38,7 @@ namespace :deploy do
   
   task :set_to_wwwdata_user, :roles => :app do
     run "chown -R www-data:root #{current_path}/log/production.log"
+    run "chown -R root:root #{current_path}/db/production.sqlite3"
   end
   
   task :load_seeds_data, :role => :app do
