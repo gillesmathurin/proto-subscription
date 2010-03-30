@@ -19,7 +19,4 @@ class SubscriptionsController < ApplicationController
     redirect_to verify_subscription_path(@team.subscription)
   end
   
-  def checkout
-    
-  end
 end
