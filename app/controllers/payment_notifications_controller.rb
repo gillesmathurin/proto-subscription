@@ -5,7 +5,7 @@ class PaymentNotificationsController < ApplicationController
     notify = Paypal::Notification.new(request.raw_post)
     if notify.acknowledge
       PaymentNotification.create!(:params => params, :subscription_id => params[:invoice],
-       :status => params[:payer_status], :transaction_id => params[:txn_id])      
+       :status => "verified")      
     end
     render :nothing => true
   end
