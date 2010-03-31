@@ -97,6 +97,36 @@ module Paypal
       end.join("\n")
     end
     
+    def paypal_subscription_with_trial_period_setup(item_name, business, price, trial_period1_price, trial_period1_duration, trial_period1_unit, subscription_id, options = {})
+      
+      misses = (options.keys - valid_setup_options)
+      raise ArgumentError, "Unknown option #{misses.inspect}" if not misses.empty?
+      
+      params = {
+        :business => business, # Your PayPal ID or an email address associated with your PayPal account. Email addresses must be confirmed.
+        :cmd => "_xclick-subscriptions",
+        :lc => "FR",
+        :item_name => item_name, # Description of item being sold (maximum 127 characters)
+        :a1 => trial_period1_price, # Trial period 1 price. For a free trial period, specify 0.
+        :p1 => trial_period1_duration, # Trial period 1 duration
+        :t1 =>  trial_period1_unit, # Trial period unit, M for month
+        :a3 => price, # regular subscription price
+        :p3 => 1, # Subscription duration
+        :t3 => 'M',
+        :src => 1,
+        :invoice => subscription_id, # Passthrough variable you can use to identify your invoice number for this purchase
+      }.merge(options)
+      
+      # Build the form 
+      returning button = [] do
+        # Just emit all the parameters that we have as hidden fields.
+        # Note that the sorting isn't really needed, but it makes testing a lot easier for now.
+        params.each do |key, value|
+          button << hidden_field_tag(key, value)
+        end
+      end.join("\n")
+    end
+    
     
     # Pass an address to paypal so that all singup forms can be prefilled
     #

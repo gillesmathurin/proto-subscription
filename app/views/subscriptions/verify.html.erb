@@ -8,29 +8,15 @@ Vérifiez vos informations avant de procéder au paiement de l'abonnement. Vous 
 
 <p><%= @subscription.plan.price_with_decimal %> € </p>
 
-<p>
-	<%= link_to "S'abonner", @subscription.paypal_url(plans_url, payment_notifications_url) %>
-</p>
 
 <p>
-	<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-	<input type="hidden" name="cmd" value="_xclick-subscriptions">
-	<input type="hidden" name="business" value="gilles_1269469014_biz@me.com">
-	<input type="hidden" name="lc" value="FR">
-	<input type="hidden" name="item_name" value="BBSTATStandardSubscription">
-	<input type="hidden" name="no_note" value="1">
-	<input type="hidden" name="a1" value="0">
-	<input type="hidden" name="p1" value="1">
-	<input type="hidden" name="t1" value="M">
-	<input type="hidden" name="a3" value="13.49">
-	<input type="hidden" name="currency_code" value="USD">
-	<input type="hidden" name="src" value="1">
-	<input type="hidden" name="p3" value="1">
-	<input type="hidden" name="t3" value="M">
-	<input type="hidden" name="sra" value="1">
-	<input type="hidden" name="bn" value="PP-SubscriptionsBF:btn_subscribeCC_LG.gif:NonHostedGuest">
-	<input type="image" src="https://www.sandbox.paypal.com/fr_FR/FR/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
-	<img alt="" border="0" src="https://www.sandbox.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-	</form>
-	
+	<%= button_to "S'abonner par bouton", @subscription.paypal_url(plans_url, payment_notifications_url) %>
+</p>
+
+<!-- Using the paypal plugin helper -->
+<p>
+<% paypal_form_tag do %>
+	<%= paypal_subscription_with_trial_period_setup "Abonnement Standard", 'gilles_1269469014_biz@me.com', @subscription.plan.price_with_decimal, 0, 1, 'M', @subscription.id, :return => plans_url, :notify_url => payment_notifications_url, :currency_code => "EUR" %>
+	<%= submit_tag "Payer sur Paypal" %>
+<% end %>
 </p>
