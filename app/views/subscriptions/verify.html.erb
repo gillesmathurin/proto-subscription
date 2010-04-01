@@ -10,7 +10,7 @@ Vérifiez vos informations avant de procéder au paiement de l'abonnement. Vous 
 
 
 <!-- TODO : activate in production -->
-<%# Paypal::Notification.ipn_url = APP_CONFIG[:paypal_url] %>
+<%- Paypal::Notification.ipn_url = APP_CONFIG[:paypal_url] -%>
 <!-- END TODO -->
 
 <!-- Using the paypal plugin helper -->
