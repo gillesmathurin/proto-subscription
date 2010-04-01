@@ -7,5 +7,4 @@ db/*.sqlite3
 config/deploy.rb
 config/database.yml
 config/app_config.yml
-config/initializers/load_app_config.rb
 certs/*
