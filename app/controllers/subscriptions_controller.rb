@@ -3,6 +3,11 @@ class SubscriptionsController < ApplicationController
     @team = Team.new
     @subscription = @team.build_subscription(:plan_id => params[:plan_id])
   end
+  
+  def trial
+    @team = Team.new
+    @subscription = @team.build_subscription()
+  end
 
   def show
     @subscription = Subscription.find(params[:id])
@@ -17,6 +22,13 @@ class SubscriptionsController < ApplicationController
     @subscription = @team.build_subscription(params[:subscription])
     @team.save
     redirect_to verify_subscription_path(@team.subscription)
+  end
+  
+  def create_trial
+    @team = Team.new(params[:team])
+    @subscription = @team.build_subscription(:status => "trial", :start_date => Time.now, :trial_expiration_date => Time.now + 3.minutes)
+    @team.save
+    redirect_to
   end
   
 end

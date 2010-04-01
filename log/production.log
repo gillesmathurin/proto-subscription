@@ -1,0 +1,74 @@
+
+
+Processing WelcomeController#index (for 93.121.240.59 at 2010-03-30 21:19:34) [GET]
+Rendering welcome/index
+Completed in 3186ms (View: 2695, DB: 0) | 200 OK [http://protosubscription.gmwebagency.com/]
+
+
+Processing WelcomeController#index (for 93.121.240.59 at 2010-03-31 00:16:23) [GET]
+Rendering welcome/index
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://protosubscription.gmwebagency.com/]
+
+
+Processing WelcomeController#index (for 93.121.240.59 at 2010-03-31 10:40:16) [GET]
+Rendering welcome/index
+Completed in 1893ms (View: 1340, DB: 322) | 200 OK [http://protosubscription.gmwebagency.com/]
+
+
+Processing WelcomeController#index (for 93.121.240.59 at 2010-03-31 17:35:02) [GET]
+Rendering welcome/index
+Completed in 3403ms (View: 2956, DB: 0) | 200 OK [http://protosubscription.gmwebagency.com/]
+
+
+Processing WelcomeController#index (for 93.121.240.59 at 2010-03-31 19:47:36) [GET]
+Rendering welcome/index
+Completed in 1503ms (View: 1165, DB: 0) | 200 OK [http://protosubscription.gmwebagency.com/]
+
+
+Processing WelcomeController#index (for 93.121.240.59 at 2010-03-31 19:53:57) [GET]
+Rendering welcome/index
+Completed in 21ms (View: 17, DB: 116) | 200 OK [http://protosubscription.gmwebagency.com/]
+
+
+Processing PlansController#index (for 93.121.240.59 at 2010-03-31 19:54:34) [GET]
+Rendering plans/index
+Completed in 923ms (View: 77, DB: 841) | 200 OK [http://protosubscription.gmwebagency.com/plans]
+
+
+Processing SubscriptionsController#new (for 93.121.240.59 at 2010-03-31 19:54:36) [POST]
+  Parameters: {"authenticity_token"=>"PZb3nc2phS+KZGhtgIoVo9x+EoDxMQA7+R3j+aDsWQk=", "plan_id"=>"1"}
+Rendering subscriptions/new
+Completed in 127ms (View: 18, DB: 98) | 200 OK [http://protosubscription.gmwebagency.com/subscriptions/new?plan_id=1]
+
+
+Processing SubscriptionsController#create (for 93.121.240.59 at 2010-03-31 19:54:59) [POST]
+  Parameters: {"commit"=>"S'abonner", "authenticity_token"=>"PZb3nc2phS+KZGhtgIoVo9x+EoDxMQA7+R3j+aDsWQk=", "subscription"=>{"plan_id"=>"1"}, "team"=>{"adminpassword"=>"pass", "zip"=>"97450", "nom"=>"foo", "country"=>"guadeloupe France", "adminpassword_confirmation"=>"pass", "adminname"=>"login", "adresse"=>"bar", "ville"=>"villes"}}
+Redirected to http://protosubscription.gmwebagency.com/subscriptions/3/verify
+Completed in 1050ms (DB: 1042) | 302 Found [http://protosubscription.gmwebagency.com/subscriptions]
+
+
+Processing SubscriptionsController#verify (for 93.121.240.59 at 2010-03-31 19:55:01) [GET]
+  Parameters: {"id"=>"3"}
+Rendering subscriptions/verify
+Completed in 218ms (View: 18, DB: 199) | 200 OK [http://protosubscription.gmwebagency.com/subscriptions/3/verify]
+
+
+Processing PaymentNotificationsController#create (for 216.113.191.33 at 2010-03-31 19:57:45) [POST]
+  Parameters: {"period3"=>"1 M", "receiver_email"=>"gilles_1269469014_biz@me.com", "business"=>"gilles_1269469014_biz@me.com", "invoice"=>"3", "subscr_date"=>"12:57:43 Mar 31, 2010 PDT", "subscr_id"=>"I-FWCHH6WL04B9", "mc_currency"=>"EUR", "notify_version"=>"2.9", "item_name"=>"Abonnement Standard", "verify_sign"=>"AIOSDFRQYWBbSsaQ4Z-FSLeFfE6WAZvGR1X1fiz.YMXHgHTUCaK8j.Fs", "mc_amount1"=>"0.00", "txn_type"=>"subscr_signup", "test_ipn"=>"1", "last_name"=>"User", "payer_id"=>"E8P87ZPXRF2MW", "charset"=>"windows-1252", "mc_amount3"=>"39.90", "payer_status"=>"unverified", "reattempt"=>"1", "residence_country"=>"FR", "recurring"=>"1", "payer_email"=>"buyer_1238777363_per@me.com", "period1"=>"1 M", "first_name"=>"Test"}
+Completed in 1907ms (View: 1, DB: 217) | 200 OK [http://protosubscription.gmwebagency.com/payment_notifications]
+
+
+Processing PlansController#index (for 93.121.240.59 at 2010-03-31 19:57:49) [GET]
+  Parameters: {"auth"=>"fFZTrBZSjqKHYmt8oYflXUHuwoFoOmWpY7axiRtvIBqRFwF_mpagpBRVWmZyR9shlkF3vllG7_aXBTec3MEU4PeCCGO6cGeZuWzvaHdLlx66KrC7P2ZNyGYM98bbNGYKcn7tu5CuzLMDGSFJymdXIXBWqTt14wcRU__ys7J-T-D0DzshnjCMMalnKhiSAcQoikMZRCxYYPpNHbT_UVAod9GiVgu", "merchantRet.x"=>"Retour chez le marchand", "form_charset"=>"UTF-8"}
+Rendering plans/index
+Completed in 8ms (View: 7, DB: 0) | 200 OK [http://protosubscription.gmwebagency.com/plans?merchantRet.x=Retour+chez+le+marchand&auth=fFZTrBZSjqKHYmt8oYflXUHuwoFoOmWpY7axiRtvIBqRFwF_mpagpBRVWmZyR9shlkF3vllG7_aXBTec3MEU4PeCCGO6cGeZuWzvaHdLlx66KrC7P2ZNyGYM98bbNGYKcn7tu5CuzLMDGSFJymdXIXBWqTt14wcRU__ys7J-T-D0DzshnjCMMalnKhiSAcQoikMZRCxYYPpNHbT_UVAod9GiVgu&form_charset=UTF-8]
+
+
+Processing WelcomeController#index (for 93.121.240.59 at 2010-04-01 00:42:02) [GET]
+Rendering welcome/index
+Completed in 5009ms (View: 3656, DB: 0) | 200 OK [http://protosubscription.gmwebagency.com/]
+
+
+Processing WelcomeController#index (for 93.121.240.59 at 2010-04-01 02:51:24) [GET]
+Rendering welcome/index
+Completed in 210ms (View: 188, DB: 0) | 200 OK [http://protosubscription.gmwebagency.com/]

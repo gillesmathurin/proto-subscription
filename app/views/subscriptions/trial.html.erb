@@ -1,0 +1,13 @@
+<h1>Subscription#new</h1>
+<%= error_messages_for :model %>
+
+<% form_for @team, :url => create_trial_subscriptions_path do |f| -%>
+  <%= f.error_messages %>
+	
+	<%= render :partial => 'team', :locals => {:f => f} %>
+			
+	</p>
+	<p>
+		<%= f.submit "Essayer" %>
+	</p>
+<% end -%>

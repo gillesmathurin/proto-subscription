@@ -23,7 +23,7 @@ module Paypal
 
     def paypal_form_tag(url = Paypal::Notification.ipn_url, options = {}, &block)
       if block
-        concat(form_tag(url, options)+capture(&block)+"</form>", block.binding)
+        concat(form_tag(url, options)+capture(&block)+"</form>") #, block.binding à mettre dans les parenthèses si provoque un bug
       else
         form_tag(url, options)
       end
@@ -115,6 +115,7 @@ module Paypal
         :t3 => 'M',
         :src => 1,
         :invoice => subscription_id, # Passthrough variable you can use to identify your invoice number for this purchase
+        :cert_id => "CFJPNL63J97XY"
       }.merge(options)
       
       # Build the form 

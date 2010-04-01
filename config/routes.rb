@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   
   map.resources :plans
-  map.resources :subscriptions, :member => {:verify => :get}
+  map.resources :subscriptions, :member => {:verify => :get}, :collection => {:create_trial => :post}
+  map.trial_subscription 'subscriptions_trial', :controller => 'subscriptions', :action => 'trial'
   map.resources :teams
   map.resources :payment_notifications
   

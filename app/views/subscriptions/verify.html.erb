@@ -9,14 +9,14 @@ Vérifiez vos informations avant de procéder au paiement de l'abonnement. Vous 
 <p><%= @subscription.plan.price_with_decimal %> € </p>
 
 
-<p>
-	<%= button_to "S'abonner par bouton", @subscription.paypal_url(plans_url, payment_notifications_url) %>
-</p>
+<!-- TODO : activate in production -->
+<%# Paypal::Notification.ipn_url = APP_CONFIG[:paypal_url] %>
+<!-- END TODO -->
 
 <!-- Using the paypal plugin helper -->
 <p>
 <% paypal_form_tag do %>
-	<%= paypal_subscription_with_trial_period_setup "Abonnement Standard", 'gilles_1269469014_biz@me.com', @subscription.plan.price_with_decimal, 0, 1, 'M', @subscription.id, :return => plans_url, :notify_url => payment_notifications_url, :currency_code => "EUR" %>
+	<%= paypal_subscription_with_trial_period_setup "Abonnement Standard", APP_CONFIG[:paypal_email], @subscription.plan.price_with_decimal, 0, 1, 'M', @subscription.id, :return => plans_url, :notify_url => payment_notifications_url, :currency_code => "EUR" %>
 	<%= submit_tag "Payer sur Paypal" %>
 <% end %>
 </p>
