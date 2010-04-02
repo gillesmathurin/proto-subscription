@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.trial_subscription 'subscriptions_trial', :controller => 'subscriptions', :action => 'trial'
   map.resources :teams
   map.resources :payment_notifications
+  map.resources :welcome, :member => {:team_home => :get}
   
   # The priority is based upon order of creation: first created -> highest priority.
 

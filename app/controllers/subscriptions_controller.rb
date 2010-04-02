@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
     @team = Team.new(params[:team])
     @subscription = @team.build_subscription(:status => "trial", :start_date => Time.now, :trial_expiration_date => Time.now + 3.minutes)
     @team.save
-    redirect_to
+    redirect_to team_home_welcome_path(@team.id)
   end
   
 end
