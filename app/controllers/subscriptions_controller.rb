@@ -1,7 +1,16 @@
 class SubscriptionsController < ApplicationController
   def new
     @team = Team.new
-    @subscription = @team.build_subscription(:plan_id => params[:plan_id])
+    if params[:plan_id]
+      @subscription = @team.build_subscription(:plan_id => params[:plan_id])
+    else  
+      @subscription = @team.build_subscription()
+    end
+  end
+  
+  def edit
+    @team = Team.find(params[:id])
+    @subscription = @team.subscription
   end
   
   def trial

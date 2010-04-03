@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
       if @team.trial_account_valid?
         format.html { }
       else
-        format.html { redirect_to plans_url }
+        format.html { redirect_to new_subscription_url(:id => @team.id) }
       end
     end
   end
