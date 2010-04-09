@@ -36,4 +36,7 @@ class SubscriptionsController < ApplicationController
     redirect_to team_home_welcome_path(@team.id)
   end
   
+  def verify
+    @subscription = Subscription.find(params[:id])
+  end
 end
