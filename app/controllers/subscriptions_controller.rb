@@ -38,6 +38,6 @@ class SubscriptionsController < ApplicationController
   
   def verify
     @subscription = Subscription.find(params[:id])
-    @team = @subcription.team
+    @team = @subscription.team
   end
 end
