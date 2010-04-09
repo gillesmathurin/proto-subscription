@@ -40,4 +40,8 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
     @team = @subscription.team
   end
+  
+  def congrats
+    @team = Team.find(params[:id])
+  end
 end

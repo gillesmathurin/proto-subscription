@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :plans
   map.resources :subscriptions, :member => {:verify => :get}, :collection => {:create_trial => :post}
   map.trial_subscription 'subscriptions_trial', :controller => 'subscriptions', :action => 'trial'
-  map.congrats 'congratulation', :controller => 'subscription', :action => 'congrats'
+  map.congrats 'congratulation', :controller => 'subscriptions', :action => 'congrats'
   map.resources :teams
   map.resources :payment_notifications
   map.resources :welcome, :member => {:team_home => :get}
