@@ -3,13 +3,15 @@ class PaymentNotificationsController < ApplicationController
   
   def create
     notify = Paypal::Notification.new(request.raw_post)
-    if notify.acknowledge && subscription_notification?(params) 
-      PaymentNotification.create(:params => params, :subscription_id => params[:invoice],
-       :status => "verified")      
-    elsif notify.acknowledge && subscription_payment_notification?(params)
-      PaymentNotification.create(:params => params, :subscription_id => params[:invoice], :status => "paid")
-    elsif notify.acknowledge && subscription_canceled_notification?(params)
-      PaymentNotification.create(:params => params, :subscription_id => params[:invoice], :status => "cancel")
+    if notify.acknowledge
+      if subscription_notification?(params) 
+        PaymentNotification.create(:params => params, :subscription_id => params[:invoice],
+          :status => "verified")      
+      elsif subscription_payment_notification?(params)
+        PaymentNotification.create(:params => params, :subscription_id => params[:invoice], :status => "paid")
+      elsif subscription_canceled_notification?(params)
+        PaymentNotification.create(:params => params, :subscription_id => params[:invoice], :status => "cancel")
+      end
     end
     render :nothing => true
   end
