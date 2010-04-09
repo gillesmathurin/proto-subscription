@@ -22,10 +22,6 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.find(params[:id])
   end
   
-  def verify
-    @subscription = Subscription.find(params[:id])
-  end
-
   def create
     @team = Team.new(params[:team])
     @subscription = @team.build_subscription(params[:subscription])

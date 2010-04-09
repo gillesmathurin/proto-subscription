@@ -14,9 +14,9 @@ Vérifiez vos informations avant de procéder au paiement de l'abonnement. Vous 
 <!-- END TODO -->
 
 <!-- Using the paypal plugin helper -->
-<p>
-<% paypal_form_tag do %>
-	<%= paypal_subscription_with_trial_period_setup "Abonnement Standard", APP_CONFIG[:paypal_email], @subscription.plan.price_with_decimal, 0, 1, 'M', @subscription.id, :return => plans_url, :notify_url => payment_notifications_url, :currency_code => "EUR" %>
-	<%= submit_tag "Payer sur Paypal" %>
-<% end %>
+<p align="center">
+	<% paypal_form_tag do %>
+		<%= paypal_subscription_setup "Abonnement Standard", APP_CONFIG[:paypal_email], @subscription.plan.price_with_decimal, @subscription.id, :return => congrats_url(@team.id), :notify_url => payment_notifications_url, :currency_code => "USD" %>
+		<%= submit_tag "Payer sur Paypal" %>
+	<% end %>
 </p>
